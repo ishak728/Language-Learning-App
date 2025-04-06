@@ -1,9 +1,9 @@
 export interface Word{
-    id:String,
-    text:String,
-    meaning:String,
-    exampleSentence:String,
-    pronunciation:String
+    id:string,
+    text:string,
+    meaning:string,
+    exampleSentence:string,
+    pronunciation:string
 }
 
 

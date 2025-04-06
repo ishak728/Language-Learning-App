@@ -2,6 +2,7 @@ import { View, Text, ImageBackground, Dimensions, TouchableOpacity, FlatList } f
 import { mockWords, Word } from "../../types/Word"
 import { useEffect } from "react"
 import { Feather, Ionicons, MaterialIcons } from "@expo/vector-icons";
+import { useWordContext } from "../../store/context/WordContext";
 
 const { width, height } = Dimensions.get('window');
 
@@ -34,7 +35,7 @@ const LearnWordsScreen = () => {
                     <TouchableOpacity>
                         <Feather name="volume-2" size={24} color="white" />
                     </TouchableOpacity>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={()=>useWordCont}>
                         <Ionicons name="heart-outline" size={24} color="white" />
                     </TouchableOpacity>
                     <TouchableOpacity>

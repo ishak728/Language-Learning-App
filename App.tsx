@@ -5,13 +5,16 @@ import 'react-native-gesture-handler';
 import 'react-native-reanimated';
 import TabNavigator from './navigation/TabNavigator';
 import MainNavigator from './navigation/MainNavigator';
+import { WordProvider } from './store/context/WordContext';
 
 
 export default function App() {
   return (
-    <NavigationContainer>
-     <MainNavigator></MainNavigator>
-    </NavigationContainer>
+    <WordProvider>
+      <NavigationContainer>
+        <MainNavigator></MainNavigator>
+      </NavigationContainer>
+    </WordProvider>
   );
 }
 
