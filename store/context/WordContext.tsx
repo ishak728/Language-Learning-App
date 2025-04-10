@@ -91,6 +91,7 @@ export const useWordContext=()=>{
     if(!context){
         throw new Error("word context error")
     }
+    
     return context
 }
 

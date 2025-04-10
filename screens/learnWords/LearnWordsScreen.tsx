@@ -9,6 +9,8 @@ const { width, height } = Dimensions.get('window');
 
 const LearnWordsScreen = () => {
 
+    const { toggleFavorite, toggleSave, isFavorite, isSaved } = useWordContext();
+
     //     useEffect(()=>{
     // console.log(mockWords)
     //     },[])
@@ -35,11 +37,14 @@ const LearnWordsScreen = () => {
                     <TouchableOpacity>
                         <Feather name="volume-2" size={24} color="white" />
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={()=>useWordCont}>
-                        <Ionicons name="heart-outline" size={24} color="white" />
+                    <TouchableOpacity onPress={()=> toggleFavorite(item)}>
+                        {isFavorite(item.id)?<Ionicons name="heart-outline" size={24} color="white" />:<Ionicons name="heart-sharp" size={24} color="white" />}
+                        
                     </TouchableOpacity>
-                    <TouchableOpacity>
-                        <MaterialIcons name="bookmark-outline" size={24} color="white" />
+                    <TouchableOpacity onPress={()=>toggleSave(item)}>
+                        {isSaved(item.id)? <MaterialIcons name="bookmark-outline" size={24} color="white" />: <MaterialIcons name="bookmark" size={24} color="white" />}
+                        
+                       
                     </TouchableOpacity>
                 </View>
 
@@ -57,7 +62,7 @@ const LearnWordsScreen = () => {
             resizeMode="cover"
             style={{ flex: 1, justifyContent: "center" }}
         >
-            <TouchableOpacity style={{ backgroundColor: '#00000070', padding: 12, borderRadius: 30, position: "absolute", top: 40, right: 20 }}
+            <TouchableOpacity style={{ backgroundColor: '#00000070', padding: 12, borderRadius: 30, position: "absolute", top: 40, right: 20, zIndex: 10,elevation:10 }}
                 onPress={() => { gridButton() }}
             >
                 <Feather name="grid" size={20} color="white" />
